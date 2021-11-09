@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
 
 import 'package:cateyes/theme/ui_theme.dart';
@@ -48,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String message = '';
 
   @override
-  initState() {
+  void initState() {
     super.initState();
     Map<String, String> params = widget.params;
     print(params.toString());
@@ -58,7 +59,15 @@ class _MyHomePageState extends State<MyHomePage> {
     if (atsign == null || radio == null) {
       message = 'RADIO OR @SIGN NOT FOUND';
     } else {
-      message = lookupRadio(atsign.toString(),radio.toString());
+      print('Just about to wait');
+      () async {
+        print('Just about to wait');
+        message = await lookupRadio(atsign.toString(), radio.toString());
+        print(message);
+        setState(() {
+          // Update your UI with the desired changes.
+        });
+      }();
     }
   }
 
