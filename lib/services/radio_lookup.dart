@@ -9,6 +9,6 @@ Future<String> lookupRadio(String atsign, String hamradio) async {
                 });
   // Uri.parse('https://wavi.ng/api?atp=public.$hamradio.ai6bh@$atsign&html'));
   print(result.body);
-
+  
   return result.body;
 }
