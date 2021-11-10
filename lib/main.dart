@@ -4,6 +4,7 @@ import 'dart:html';
 void getParams() {
   var uri = Uri.dataFromString(window.location.href);
   Map<String, String> params = uri.queryParameters;
+  //http://localhost:49276/?origin=mr&destiny=blobby
   var origin = params['origin'];
   var destiny = params['destiny'];
   var par = params.toString();
