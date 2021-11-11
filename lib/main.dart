@@ -80,11 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
         oldmessage = message;
         message =
             '$atsign VFO A ${hamRadio.vfoaFrequency} ${hamRadio.vfoaModulationMode}';
-        if(message != oldmessage) {
-          setState(() {
-          
-        });
-        }
       }
       return Scaffold(
         backgroundColor: UItheme.richBlackFOGRA29,
@@ -103,5 +98,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
     });
+    
   }
 }
