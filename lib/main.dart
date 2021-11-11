@@ -1,3 +1,4 @@
+import 'package:cateyes/services/formats.dart';
 import 'package:flutter/material.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
@@ -76,16 +77,17 @@ class _MyHomePageState extends State<MyHomePage> {
     return TimerBuilder.periodic(const Duration(milliseconds: 1000),
         builder: (context) {
       if (lookup) {
-        lookupRadio(atsign!, radio!, hamRadio);
-        oldmessage = message;
+        getRadiohere();
+        print(hamRadio.vfoaFrequency);
+        var freq = frequencyFormat(hamRadio.vfoaFrequency.toString());
         message =
-            '$atsign VFO A ${hamRadio.vfoaFrequency} ${hamRadio.vfoaModulationMode}';
+            '$atsign VFO A $freq ${hamRadio.vfoaModulationMode}';
       }
       return Scaffold(
         backgroundColor: UItheme.richBlackFOGRA29,
         body: Center(
           child: SizedBox(
-            width: 600,
+            width: 700,
             height: 400,
             // ignore: prefer_const_constructors
             child: Text(message,
@@ -98,6 +100,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
     });
-    
+  }
+
+  void getRadiohere() async {
+    hamRadio = await lookupRadio(atsign!, radio!, hamRadio);
   }
 }
