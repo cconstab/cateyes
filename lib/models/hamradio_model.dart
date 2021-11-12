@@ -17,8 +17,8 @@ class PublicHamRadio {
   PublicHamRadio({
     required this.radioName,
     this.radioUuid = '[]',
-    this.vfoaFrequency = '0000000001',
-    this.vfoaModulationMode = 'COL',
+    this.vfoaFrequency = '8888888888',
+    this.vfoaModulationMode = 'QRT',
     this.vfoaOperatingMode = '---',
     this.vfobFrequency = '0000000000',
     this.vfobModulationMode = '---',
