@@ -53,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool lookup = false;
   String message = '';
   String oldmessage = '';
+  int refreshcounter = 5000;
   PublicHamRadio hamRadio = PublicHamRadio(radioName: 'TBA');
 
   @override
@@ -74,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return TimerBuilder.periodic(const Duration(milliseconds: 1000),
+    return TimerBuilder.periodic( Duration(milliseconds: refreshcounter),
         builder: (context) {
       if (lookup) {
         getRadiohere();
