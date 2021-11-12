@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   at_commons: ^3.0.0
   at_client_mobile: ^3.0.3
+  timer_builder: ^2.0.0
 
 dev_dependencies:
   flutter_test:

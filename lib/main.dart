@@ -1,9 +1,13 @@
+import 'package:cateyes/services/formats.dart';
 import 'package:flutter/material.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
 
+import 'package:timer_builder/timer_builder.dart';
+
 import 'package:cateyes/theme/ui_theme.dart';
 import 'package:cateyes/services/radio_lookup.dart';
+import 'package:cateyes/models/hamradio_model.dart';
 
 Map<String, String> getParams() {
   var uri = Uri.dataFromString(window.location.href);
@@ -46,7 +50,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String? atsign;
   String? radio;
+  bool lookup = false;
   String message = '';
+  String oldmessage = '';
+  int refreshcounter = 5000;
+  PublicHamRadio hamRadio = PublicHamRadio(radioName: 'TBA');
 
   @override
   void initState() {
@@ -59,35 +67,50 @@ class _MyHomePageState extends State<MyHomePage> {
     if (atsign == null || radio == null) {
       message = 'RADIO OR @SIGN NOT FOUND';
     } else {
-      print('Just about to wait');
-      () async {
-        print('Just about to wait');
-        message = await lookupRadio(atsign.toString(), radio.toString());
-        print(message);
-        setState(() {
-          // Update your UI with the desired changes.
-        });
-      }();
+      lookup = true;
+      message = 'LOOKING UP $atsign USING $radio';
+      hamRadio.radioName = radio!;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: UItheme.richBlackFOGRA29,
-      body: Center(
-        child: SizedBox(
-          width: 600,
-          height: 50,
-          // ignore: prefer_const_constructors
-          child: Text(message,
-              style: const TextStyle(
-                  fontFamily: 'LED',
-                  fontSize: 40,
-                  letterSpacing: 5,
-                  color: Colors.green)),
+    return TimerBuilder.periodic( Duration(milliseconds: refreshcounter),
+        builder: (context) {
+      if (lookup) {
+        getRadiohere();
+        print(hamRadio.vfoaFrequency);
+        var freq = frequencyFormat(hamRadio.vfoaFrequency.toString());
+        message = '${hamRadio.radioName} VFO A $freq ${hamRadio.vfoaModulationMode}';
+      }
+      return Scaffold(
+        backgroundColor: UItheme.richBlackFOGRA29,
+        body: Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 900,
+                height: 60,
+                // ignore: prefer_const_constructors
+                child: Center(
+                  child: Text(message,
+                      style: const TextStyle(
+                          fontFamily: 'LED',
+                          fontSize: 40,
+                          letterSpacing: 5,
+                          color: Colors.green)),
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
+  }
+
+  void getRadiohere() async {
+    hamRadio = await lookupRadio(atsign!, radio!, hamRadio);
   }
 }
