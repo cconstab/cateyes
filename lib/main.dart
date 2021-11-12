@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
         getRadiohere();
         print(hamRadio.vfoaFrequency);
         var freq = frequencyFormat(hamRadio.vfoaFrequency.toString());
-        message = '$radio VFO A $freq ${hamRadio.vfoaModulationMode}';
+        message = '${hamRadio.radioName} VFO A $freq ${hamRadio.vfoaModulationMode}';
       }
       return Scaffold(
         backgroundColor: UItheme.richBlackFOGRA29,
