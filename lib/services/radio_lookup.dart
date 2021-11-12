@@ -5,7 +5,7 @@ import 'dart:convert';
  Future <PublicHamRadio> lookupRadio(String atsign, String radio, PublicHamRadio hamRadio) async {
   print('waiting');
   http.Response result = await http.get(
-      Uri.parse('https://wavi.shaduf.com/api?atp=public.ic7100.ai6bh@ai6bh'));
+      Uri.parse('https://wavi.shaduf.com/api?atp=public.$radio.ai6bh@$atsign'));
   // headers: {"Accept": "application/json",
   //    headers: {       "Access-Control-Allow-Origin": "*",
   //         });

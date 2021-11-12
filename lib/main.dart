@@ -80,22 +80,29 @@ class _MyHomePageState extends State<MyHomePage> {
         getRadiohere();
         print(hamRadio.vfoaFrequency);
         var freq = frequencyFormat(hamRadio.vfoaFrequency.toString());
-        message =
-            '$atsign VFO A $freq ${hamRadio.vfoaModulationMode}';
+        message = '$radio VFO A $freq ${hamRadio.vfoaModulationMode}';
       }
       return Scaffold(
         backgroundColor: UItheme.richBlackFOGRA29,
         body: Center(
-          child: SizedBox(
-            width: 700,
-            height: 400,
-            // ignore: prefer_const_constructors
-            child: Text(message,
-                style: const TextStyle(
-                    fontFamily: 'LED',
-                    fontSize: 40,
-                    letterSpacing: 5,
-                    color: Colors.green)),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 900,
+                height: 60,
+                // ignore: prefer_const_constructors
+                child: Center(
+                  child: Text(message,
+                      style: const TextStyle(
+                          fontFamily: 'LED',
+                          fontSize: 40,
+                          letterSpacing: 5,
+                          color: Colors.green)),
+                ),
+              ),
+            ],
           ),
         ),
       );
