@@ -92,13 +92,13 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               SizedBox(
                 width: 900,
-                height: 60,
+                height: 180,
                 // ignore: prefer_const_constructors
                 child: Center(
                   child: Text(message,
                       style: const TextStyle(
                           fontFamily: 'LED',
-                          fontSize: 40,
+                          fontSize: 35,
                           letterSpacing: 5,
                           color: Colors.green)),
                 ),
