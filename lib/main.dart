@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'dart:html';
 
 import 'package:timer_builder/timer_builder.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 import 'package:cateyes/theme/ui_theme.dart';
 import 'package:cateyes/services/radio_lookup.dart';
@@ -92,10 +93,14 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               SizedBox(
                 width: 900,
-                height: 180,
+                height: 110,
                 // ignore: prefer_const_constructors
                 child: Center(
-                  child: Text(message,
+                  child: AutoSizeText(message,
+                  maxLines: 3,
+                  maxFontSize: 35,
+                  minFontSize: 10,
+                
                       style: const TextStyle(
                           fontFamily: 'LED',
                           fontSize: 35,
