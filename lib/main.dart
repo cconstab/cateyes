@@ -91,14 +91,13 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 900,
-                height: 110,
+              FittedBox(
+                alignment: Alignment.center,
                 // ignore: prefer_const_constructors
                 child: Center(
                   child: AutoSizeText(message,
                   maxLines: 3,
-                  maxFontSize: 35,
+                  maxFontSize: 50,
                   minFontSize: 10,
                 
                       style: const TextStyle(
