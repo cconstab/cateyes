@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'CAT',
+      title: 'CATEYES',
       theme: ThemeData(
           primarySwatch: Colors.green,
           backgroundColor: UItheme.richBlackFOGRA29),
@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
         getRadiohere();
         print(hamRadio.vfoaFrequency);
         var freq = frequencyFormat(hamRadio.vfoaFrequency.toString());
-        message = '${hamRadio.radioName} VFO A $freq ${hamRadio.vfoaModulationMode}';
+        message = ' ${hamRadio.radioName} VFO A $freq ${hamRadio.vfoaModulationMode} ';
       }
       return Scaffold(
         backgroundColor: UItheme.richBlackFOGRA29,
@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 
                       style: const TextStyle(
                           fontFamily: 'LED',
-                          fontSize: 35,
+                          fontSize: 50,
                           letterSpacing: 5,
                           color: Colors.green)),
                 ),
@@ -115,6 +115,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void getRadiohere() async {
-    hamRadio = await lookupRadio(atsign!, radio!, hamRadio);
+    hamRadio = await lookupRadio(atsign!.toLowerCase(), radio!.toLowerCase(), hamRadio);
   }
 }
