@@ -1,16 +1,23 @@
 # cateyes
 
-A new Flutter project.
+CatEyes is a Flutter web application that is used to see the Frequency and the Modulation mode of a radio that is using CatWeb.
+
+ CatWeb is a Flutter application that is available on multi platforms that connects to a Ham Radio via its CAT port and then publishes the Frequency and Modulation mode for CatWeb to display.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This Flutter web application can be run locally with `flutter run` and then selecting `chrome`. Once you are happy with the results then run `flutter build web` and copy the resulting files in build/web to your webserver. 
 
-A few resources to get you started if this is your first Flutter project:
+The latest version can be found running on GitHub pages at `https://cconstab.github.io/cateyes/`
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+To see this all in action and see if I am listening on the bands jump to my @wavi page
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[@wavi](https://wavi.ng/@ai6bh)
+
+If you would like you own @sign for your callsign raise an issue and I will put you in contact with the right folks at [The @ Company](atsign.com).
+
+## thoughts or improvements
+Raise an issue or a PR ! I love PR's
+Colin/AI6BH
+
+
