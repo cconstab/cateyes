@@ -8,6 +8,9 @@ CatEyes is a Flutter web application that is used to see the Frequency and the M
 
 This Flutter web application can be run locally with `flutter run` and then selecting `chrome`. Once you are happy with the results then run `flutter build web` and copy the resulting files in build/web to your webserver. 
 
+![image](https://user-images.githubusercontent.com/6131216/143305402-5ba6d7c5-f38e-4813-a6c5-3c4675bf8463.png)
+
+
 The latest version can be found running on GitHub pages at `https://cconstab.github.io/cateyes/`
 
 To see this all in action and see if I am listening on the bands jump to my @wavi page
